@@ -23,6 +23,12 @@ def delete_cookies(database, whitelist) :
 
     print 'All specified cookies deleted.'
 
+'''
+Formulates a SQL list from the given Python list.
+In other words, if the list is passesd with the values
+"google.com" and "facebook.com", then this will return
+a string in the format ('google.com', 'facebook.com')
+'''
 def get_sql_list(python_list) :
 
     if len(python_list) == 0 :
@@ -37,6 +43,11 @@ def get_sql_list(python_list) :
 
     return sql_list
 
+'''
+Parses the arguments from the command line, using argparse.
+This method will exit the program if the required arguments
+are not found.
+'''
 def get_arguements() :
 
     arg_parser = argparse.ArgumentParser(description='Clears Firefox cookies.')
@@ -57,6 +68,10 @@ def get_arguements() :
                         
     return arg_parser.parse_args()
 
+'''
+Validates the connection, and exits the program if 
+the connection is invalid.
+'''
 def validate_connection(database) :
 
     if is_valid_connection(database) == False :
@@ -67,6 +82,11 @@ def validate_connection(database) :
         database.close()
         sys.exit()
 
+'''
+Checks if the connection to the database is
+valid. If it is not found to be valid, this 
+method will print the error cause and return False.
+'''
 def is_valid_connection(database) :
 
     cursor = database.cursor()
