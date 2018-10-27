@@ -64,7 +64,7 @@ def get_arguements() :
                             type=str,
                             help='One or more domains which you do NOT want removed. ' +
                                 'These must be the base domains (not subdomains). '
-                                'Example: firefox_cookie_sweep.py --except aarondevelops.com google.com firefox.com')
+                                'Example: firefox_cookie_sweep.py --ignore aarondevelops.com google.com firefox.com')
                         
     return arg_parser.parse_args()
 
